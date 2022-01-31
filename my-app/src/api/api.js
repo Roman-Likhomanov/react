@@ -46,39 +46,19 @@ export const profileAPI = {
 }
 
 export const authAPI = {
-    me () {
+    me() {
     return instance.get(`auth/me`)
+  },
+  login(email, password, rememberMe = false) {
+    return instance.post(`auth/login`, {email, password, rememberMe})
+  },
+  logout() {
+    return instance.delete(`auth/login`)
   }
 }
 
 
-  // axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                            //     withCredentials: true,
-                            //     headers: {
-                            //         "API-KEY": "5f4f6c5f-a1d2-4a3a-9c79-feb6ddbca618"
-                            //     }
-                            // })
-                            // .then(response => {
-                            //     if (response.data.resultCode === 0) {
-                            //         props.unfollow(u.id)
-                            //     } 
-                            //     props.toggleFollowingProgress(false, u.id) 
-                            // });
-
-
-
-                               // axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                            //     withCredentials: true,
-                            //     headers: {
-                            //         "API-KEY": "5f4f6c5f-a1d2-4a3a-9c79-feb6ddbca618"
-                            //     }
-                            // })
-                            //     .then(response => {
-                            //         if (response.data.resultCode === 0) {
-                            //             props.follow(u.id)
-                            //         }
-                            //         props.toggleFollowingProgress(false, u.id)
-                            //     });
+  
 
 
 
