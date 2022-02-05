@@ -1,20 +1,17 @@
 import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
-import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
-const ProfileInfo = (props) => {
-  if (!props.profile) {
+const ProfileInfo = ({profile, status, updateStatus}) => {
+  if (!profile) {
     return <Preloader/>
   }
   return (
     <div>
-      {/* <div>
-        <img src='https://travelfree.info/wp-content/uploads/2019/04/Palma_Mallorca_3746989_xxl-800x300.jpg' />
-      </div> */}
       <div className={s.descriptionBlock}>
-        <img src={props.profile.photos.large}/>
-        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+        <img src={profile.photos.large}/>
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
       </div>
     </div>
   )
