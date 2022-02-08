@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import './App.css';
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
 import Music from './components/Music/Music';
@@ -11,7 +11,7 @@ import Login from './components/Login/Login';
 import { initializeApp } from './redux/app-reducer';
 import { connect } from 'react-redux';
 import Preloader from './components/common/Preloader/Preloader';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import store from './redux/redux-store';
 import { Provider } from 'react-redux';
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
@@ -32,18 +32,18 @@ class App extends React.Component {
                 <Navbar />
                 <div className='app-wrapper-content' >
                     <Suspense fallback={<Preloader />}>
-                        <Routes>
-                            <Route path="/dialogs" element={<DialogsContainer
-                            />} />
-                            <Route path="/profile/*" element={<ProfileContainer
-                            />} />
-                            <Route path="/users" element={<UsersContainer
-                            />} />
-                            <Route path="/login" element={<Login />} />
-                            <Route path="/news" element={<News />} />
-                            <Route path="/music" element={<Music />} />
-                            <Route path="/settings" element={<Settings />} />
-                        </Routes>
+                            <Routes>
+                                <Route path="/dialogs" element={<DialogsContainer
+                                />} />
+                                <Route path="/profile/*" element={<ProfileContainer
+                                />} />
+                                <Route path="/users" element={<UsersContainer
+                                />} />
+                                <Route path="/login" element={<Login />} />
+                                <Route path="/news" element={<News />} />
+                                <Route path="/music" element={<Music />} />
+                                <Route path="/settings" element={<Settings />} />
+                            </Routes>
                     </Suspense>
                 </div>
             </div>
@@ -59,11 +59,11 @@ let AppContainer = connect(mapStateToProps, { initializeApp })(App);
 
 const SamuraiJSApp = (props) => {
     return <React.StrictMode>
-        <BrowserRouter>
+        <HashRouter>
             <Provider store={store}>
                 <AppContainer />
             </Provider>
-        </BrowserRouter>
+        </HashRouter>
     </React.StrictMode>
 }
 
