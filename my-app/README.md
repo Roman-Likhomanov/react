@@ -7,4 +7,4 @@
 
 ## Что сделано в приложении?
 :white_check_mark: Логинизация, валидация, капча, пагинация, лоадинг, загрузка аватарки, редактирование профиля, подписка-отписка пользователей.  
-roman-likhomanov.github.io/react/
+https://roman-likhomanov.github.io/react/
